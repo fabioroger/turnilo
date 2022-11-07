@@ -28,7 +28,7 @@ export function adjustColorSplit(split: Split, dimension: Dimension, series: Ser
     split,
     adjustSort(dimension, series),
     // TODO: This magic 5 will disappear in #756
-    adjustFiniteLimit([5, COLORS_COUNT], COLORS_COUNT)
+    adjustFiniteLimit([5, 10, 25, 50, 1000], 5)
   );
 }
 

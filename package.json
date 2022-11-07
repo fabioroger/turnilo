@@ -64,7 +64,12 @@
     "fix:ts": "tslint -p . --fix",
     "e2e": "start-server-and-test start:examples http://localhost:9090/health/ready 'cypress run'",
     "e2e:dev": "cypress open",
-    "check": "npm-run-all -c -p lint test build e2e"
+    "check": "npm-run-all -c -p lint test build e2e",
+
+    "image-build": "docker build -t atom/$npm_package_name:latest -t atom/$npm_package_name:$npm_package_version .",
+    "image-push": "docker push atom/$npm_package_name:latest && docker push atom/$npm_package_name:$npm_package_version",
+    "docker": "npm run image-build && npm run image-push",
+    "dockerx": "docker buildx build --platform linux/amd64,linux/arm64 --push -t atom/$npm_package_name:$npm_package_version ."
   },
   "dependencies": {
     "@sentry/browser": "5.0.6",
