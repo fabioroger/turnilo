@@ -1,6 +1,6 @@
 {
   "name": "turnilo",
-  "version": "1.37.0",
+  "version": "1.37.0-mol-1",
   "description": "A web-based exploratory visualization UI for Druid.io",
   "keywords": [
     "imply",
@@ -65,7 +65,6 @@
     "e2e": "start-server-and-test start:examples http://localhost:9090/health/ready 'cypress run'",
     "e2e:dev": "cypress open",
     "check": "npm-run-all -c -p lint test build e2e",
-
     "image-build": "docker build -t atom/$npm_package_name:latest -t atom/$npm_package_name:$npm_package_version .",
     "image-push": "docker push atom/$npm_package_name:latest && docker push atom/$npm_package_name:$npm_package_version",
     "docker": "npm run image-build && npm run image-push",
